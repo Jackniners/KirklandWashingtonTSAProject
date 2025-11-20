@@ -260,6 +260,7 @@
 
 <div class="subnav">
   <span onclick="scrollToSection('about')">About</span>
+  <span id="whyMoveNav" onclick="scrollToSection('whyMoveSection')" style="display:none;">Why Move?</span>
   <span onclick="scrollToSection('history')">History</span>
   <span onclick="scrollToSection('map')">Map</span>
   <span onclick="scrollToSection('communities')">Communities</span>
@@ -274,7 +275,21 @@
     <p>Kirkland is a vibrant lakeside city known for its waterfront parks, public art installations, tech presence, and close-knit neighborhoods.</p>
   </div>
 
-  <!-- HORIZONTAL TIMELINE -->
+  <!-- WHY MOVE SECTION (Hidden by default) -->
+  <h2 id="whyMoveSection" style="display: none;">Why Move to Kirkland?</h2>
+  <div class="card-list" id="whyMoveBox" style="display: none;">
+    <p>Kirkland is a beautiful and welcoming lakeside city known for its safe neighborhoods, thriving small businesses, and active community life. Here’s why many people choose to move here:</p>
+    <ul style="margin-top: 14px;">
+      <li>Clean, safe neighborhoods with strong community feel</li>
+      <li>Waterfront parks, beaches, and scenic walking paths</li>
+      <li>Highly rated schools and youth programs</li>
+      <li>Great restaurants, coffee shops, and local businesses</li>
+      <li>Short commute to Seattle, Bellevue, or Redmond</li>
+      <li>Year-round festivals, markets, and events</li>
+    </ul>
+  </div>
+
+  <!-- HISTORY -->
   <h2 id="history">History of Kirkland</h2>
   <div class="timeline" id="timeline">
     <div class="timeline-item" onclick="toggleTimeline(this)">
@@ -338,7 +353,7 @@
   <h2 id="parks">Discover Parks</h2>
 
   <div class="accordion">
-    <button onclick="toggleAccordion(this)">Kirkland Waterfront Park</button>
+    <button onclick="toggleAccordion(this)">Marina Park</button>
     <div class="accordion-content"><p>Marina Park features a sandy beach, boat launch, public art and a beautiful open-air pavilion as well as summer concerts and magnificent views. 25 Lakeshore Plaza Drive, Kirkland 98033</p></div>
   </div>
 
@@ -365,12 +380,12 @@
   <h2 id="worksCited">Works Cited</h2>
   <div class="card-list">
     <ul>
-      <li>City of Kirkland. “Parks and Community Services.” City of Kirkland.</li>
+      <li>City of Kirkland. “Parks and Community Services.”</li>
       <li>Kirkland Downtown Association. “About.”</li>
       <li>Kirkland Arts Center. “Programs & Community.”</li>
       <li>Juanita Neighborhood Association. “Welcome.”</li>
       <li>Nextdoor. “Kirkland, WA Community.”</li>
-      <li>Google Maps. “Kirkland, WA.” Embedded Map Reference.</li>
+      <li>Google Maps. “Kirkland, WA.” Embedded Map.</li>
     </ul>
   </div>
 
@@ -379,19 +394,25 @@
 <script>
   function handleSelection() {
     const value = document.getElementById("kirklandSelect").value;
-    const response = document.getElementById("responseText");
-    const content = document.getElementById("mainContent");
-    const whyMove = document.getElementById("whyMoveSection");
 
+    const content = document.getElementById("mainContent");
+    const whyMoveSection = document.getElementById("whyMoveSection");
+    const whyMoveBox = document.getElementById("whyMoveBox");
+    const whyMoveNav = document.getElementById("whyMoveNav");
+
+    // Hide welcome screen
     document.getElementById("welcomeBox").style.display = "none";
     content.style.display = "block";
 
-    if(value === "yes") {
-      response.textContent = "Welcome back, neighbor!";
-      if(whyMove) whyMove.style.display = "none";
-    } else if(value === "no") {
-      response.textContent = "Explore what makes Kirkland special!";
-      if(whyMove) whyMove.style.display = "block";
+    if (value === "no") {
+      whyMoveSection.style.display = "block";
+      whyMoveBox.style.display = "block";
+      whyMoveNav.style.display = "inline";
+      // Removed auto-scroll
+    } else {
+      whyMoveSection.style.display = "none";
+      whyMoveBox.style.display = "none";
+      whyMoveNav.style.display = "none";
     }
   }
 
