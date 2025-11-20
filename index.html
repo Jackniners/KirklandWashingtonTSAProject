@@ -1,8 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jason Krantz Website Design TSA Project</title>
 
   <style>
@@ -106,7 +101,6 @@
       margin-bottom: 10px;
     }
 
-    /* TIMELINE STYLES */
     .timeline {
       position: relative;
       padding: 40px 0;
@@ -240,7 +234,6 @@
 
 <body>
 
-<!-- DROPDOWN PROMPT -->
 <div class="dropdown-overlay" id="welcomeBox">
   <div class="dropdown-box">
     <h3>Do you live in Kirkland?</h3>
@@ -275,7 +268,6 @@
     <p>Kirkland is a vibrant lakeside city known for its waterfront parks, public art installations, tech presence, and close-knit neighborhoods.</p>
   </div>
 
-  <!-- WHY MOVE SECTION (Hidden by default) -->
   <h2 id="whyMoveSection" style="display: none;">Why Move to Kirkland?</h2>
   <div class="card-list" id="whyMoveBox" style="display: none;">
     <p>Kirkland is a beautiful and welcoming lakeside city known for its safe neighborhoods, thriving small businesses, and active community life. Here’s why many people choose to move here:</p>
@@ -289,7 +281,6 @@
     </ul>
   </div>
 
-  <!-- HISTORY -->
   <h2 id="history">History of Kirkland</h2>
   <div class="timeline" id="timeline">
     <div class="timeline-item" onclick="toggleTimeline(this)">
@@ -389,8 +380,6 @@
     </ul>
   </div>
 
-</div> <!-- end wrapper -->
-
 <script>
   function handleSelection() {
     const value = document.getElementById("kirklandSelect").value;
@@ -400,7 +389,6 @@
     const whyMoveBox = document.getElementById("whyMoveBox");
     const whyMoveNav = document.getElementById("whyMoveNav");
 
-    // Hide welcome screen
     document.getElementById("welcomeBox").style.display = "none";
     content.style.display = "block";
 
