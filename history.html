@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/jpg" href="KirkSeal.png" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Kirkland Compass</title>
+    <p>Last Changed: Jason Krantz, November 21, 11:32</p>
+  </head>
+
+  <body>
+    <header>
+      <h1>The History of Kirkland, Washington</h1>
+      <p>A larger explanation of the history of Kirkland</p>
+    </header>
+    <div class="card-list-info">
+      <p>
+        The City of Kirkland was named after a British-born steel tycoon, Peter
+        Kirk, who came to the Northwest in the 1880s seeking new development<br />
+        opportunities. Kirk envisioned developing a "Pittsburgh of the West" on
+        the eastern shore of Lake Washington - a bustling new town whose main<br />
+        economy would be focused around steel production.<br /><br />
+        In 1880, the Moss Bay Iron and Steel Works was built by Kirk and several
+        prominent Seattle businessmen. They hoped to tap the rich mineral<br />
+        resources of Snoqualmie Pass and believed that a ship canal would soon
+        be cut through Seattle to Puget Sound, opening Lake Washington to
+        Pacific<br />
+        Rim trade. A rail line to the Pass and a ship canal to Puget Sound were
+        both constructed, but too late to save Kirk's dream. Due to a stock
+        market<br />
+        crash in 1893, the mill closed without producing any steel.<br /><br />
+        Despite the steel mill's closure, Kirkland incorporated in 1905 with a
+        population of 400. The primary concern of the new Kirkland City Council
+        was the<br />
+        improvement of roads, buildings, and the Lake Washington shoreline.<br /><br />
+        The two most successful industries in Kirkland's early history were wool
+        milling and ship building. The first wool mill in the State of
+        Washington was<br />
+        established in Kirkland in 1892. It produced wool products for Alaska
+        Gold Rush prospectors and for the U.S. military during World War I.<br />
+      </p>
+      <hr />
+      <p>
+        Kirkland's ship-building industry began on the Lake Washington
+        waterfront with the construction of ferries. For 20 years, most of the
+        boats on Lake<br />
+        Washington were either built or repaired in the Kirkland area. The 1917
+        opening of the ship canal also opened Lake Washington to ocean-going<br />
+        vessels. By 1940, Kirkland's Lake Washington Shipyard was building
+        warships for the U.S. Navy. More than 25 warships were built during
+        World War II<br />
+        on what is now Carillon Point.<br /><br />
+        For most of its history, the adjoining Town of Houghton was a separate
+        community. By the 1960's, the interests of Houghton and Kirkland began
+        to<br />
+        converge. In 1968, the citizens of Houghton elected to join Kirkland to
+        become one city with a population of 13,500.<br /><br />
+        The City of Kirkland continues to grow. In 1974, the Totem Lake
+        neighborhood became part of Kirkland. The neighborhoods of South
+        Juanita, North<br />
+        Rose Hill, and South Rose Hill joined Kirkland in 1988, bringing the
+        city to its present population. At the time, these were the largest
+        annexations<br />
+        undertaken in the state in nearly two decades, adding three and one-half
+        square miles to the city as well as 16,000 new residents.<br /><br />
+        Peter Kirk's dream of a city on the east shore of Lake Washington has
+        been fulfilled, although not exactly as he imagined it.<br /><br />
+        Today, Kirkland is a vibrant and thriving community of more than 92,000
+        people.
+      </p>
+    </div>
+    <p class="center"><a href="index.html" class="btn">Back to Home</a></p>
+    <script>
+      function handleSelection() {
+        const value = document.getElementById("kirklandSelect").value;
+
+        const content = document.getElementById("mainContent");
+        const whyMoveSection = document.getElementById("whyMoveSection");
+        const whyMoveBox = document.getElementById("whyMoveBox");
+        const whyMoveNav = document.getElementById("whyMoveNav");
+
+        document.getElementById("welcomeBox").style.display = "none";
+        content.style.display = "block";
+
+        if (value === "no") {
+          whyMoveSection.style.display = "block";
+          whyMoveBox.style.display = "block";
+          whyMoveNav.style.display = "inline";
+        } else {
+          whyMoveSection.style.display = "none";
+          whyMoveBox.style.display = "none";
+          whyMoveNav.style.display = "none";
+        }
+      }
+
+      function toggleAccordion(button) {
+        const content = button.nextElementSibling;
+        content.style.display =
+          content.style.display === "block" ? "none" : "block";
+      }
+
+      function scrollToSection(id) {
+        document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+      }
+
+      function toggleTimeline(item) {
+        document
+          .querySelectorAll(".timeline-item")
+          .forEach((i) => i.classList.remove("active"));
+        item.classList.add("active");
+      }
+    </script>
+  </body>
+</html>
