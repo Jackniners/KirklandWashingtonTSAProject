@@ -10,18 +10,6 @@
 
 <body>
 
-<div class="dropdown-overlay" id="welcomeBox">
-<div class="dropdown-box">
-  <h3>Do you live in Kirkland?</h3>
-  <select id="kirklandSelect" onchange="handleSelection()">
-    <option value="">Select an option</option>
-    <option value="yes">Yes</option>
-    <option value="no">No</option>
-  </select>
-  <p id="responseText" style="margin-top: 18px; font-weight: bold;"></p>
-</div>
-</div>
-
 <header>
 <h1>Kirkland, Washington</h1>
 <p>A community-focused guide for new residents and home seekers</p>
@@ -29,7 +17,7 @@
 
 <div class="subnav">
 <span onclick="scrollToSection('about')">About</span>
-<span id="whyMoveNav" onclick="scrollToSection('whyMoveSection')" style="display:none;">Why Move?</span>
+<span id="whyMoveNav" onclick="scrollToSection('whyMoveSection')">Why Move?</span>
 <span onclick="scrollToSection('history')">History</span>
 <span onclick="scrollToSection('map')">Map</span>
 <span onclick="scrollToSection('communities')">Communities</span>
@@ -37,15 +25,16 @@
 <span onclick="scrollToSection('worksCited')">Works Cited</span>
 </div>
 
-<div class="wrapper" id="mainContent">
+<div class="wrapper" id="mainContent" style="display: block;">
 
 <h2 id="about">About Kirkland</h2>
 <div class="card-list">
   <p>Kirkland is a city close to Seattle on the east side of Lake Washington. It is well-known for its parks, trails, walkable waterfront downtown, and significant tech presence. There are roughly 97,000 residents, excellent schools, and a high cost of living in the city. EvergreenHealth is one of the major employers, and the name "Kirkland" is well-known because the city inspired the original name of Costco's Kirkland Signature brand. It provides great restaurants, fantastic views, outdoor activities, and a vibrant sense of community.</p>
 </div>
 
-<h2 id="whyMoveSection" style="display: none;">Why Move to Kirkland?</h2>
-<div class="card-list" id="whyMoveBox" style="display: none;">
+<!-- ALWAYS VISIBLE NOW -->
+<h2 id="whyMoveSection">Why Move to Kirkland?</h2>
+<div class="card-list" id="whyMoveBox">
   <p>Kirkland is a beautiful and welcoming lakeside city known for its safe neighborhoods, thriving small businesses, and active community life. Here’s why many people choose to move here:</p>
   <ul style="margin-top: 14px;">
     <li>Clean, safe neighborhoods with strong community feel</li>
@@ -85,7 +74,9 @@
     <p>Kirkland is home to diverse communities, businesses, waterfront recreation, and strong neighborhood connections.</p>
   </div>
 </div>
-<a href="history.html" class="btn">Learn More &#8594;</a>
+
+<a href="history.html" class="btn">Learn More →</a>
+
 <h2 id="map">Community Map</h2>
 <div class="map-box">
   <iframe class="map"
@@ -157,29 +148,6 @@
 </div>
 
 <script>
-function handleSelection() {
-  const value = document.getElementById("kirklandSelect").value;
-
-  const content = document.getElementById("mainContent");
-  const whyMoveSection = document.getElementById("whyMoveSection");
-  const whyMoveBox = document.getElementById("whyMoveBox");
-  const whyMoveNav = document.getElementById("whyMoveNav");
-
-  document.getElementById("welcomeBox").style.display = "none";
-  content.style.display = "block";
-
-  if (value === "no") {
-    whyMoveSection.style.display = "block";
-    whyMoveBox.style.display = "block";
-    whyMoveNav.style.display = "inline";
-
-  } else {
-    whyMoveSection.style.display = "none";
-    whyMoveBox.style.display = "none";
-    whyMoveNav.style.display = "none";
-  }
-}
-
 function toggleAccordion(button) {
   const content = button.nextElementSibling;
   content.style.display = content.style.display === "block" ? "none" : "block";
@@ -197,4 +165,3 @@ function toggleTimeline(item) {
 
 </body>
 </html>
-
