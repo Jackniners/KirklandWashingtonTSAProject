@@ -1,65 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/jpg" href="KirkSeal.png" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Kirkland Compass</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/jpg" href="KirkSeal.png" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Kirkland Compass - Resources</title>
+</head>
 
-  <body>
-    <header>
+<body class="resources">
+  <header class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
       <h1>Resources</h1>
-    </header>
+      <p>Works Cited</p>
+    </div>
+  </header>
+
+  <div class="wrapper">
     <div class="card-list-info">
+      <ul>
         <li><a href="https://www.kirklandwa.gov/Government/Departments/Parks-and-Community-Services" target="_blank">City of Kirkland: “Parks and Community Services.”</a></li>
         <li><a href="https://kirklanddowntown.org/" target="_blank">Kirkland Downtown Association: “About.”</a></li>
         <li><a href="https://kirklandartscenter.org/" target="_blank">Kirkland Arts Center: “Programs & Community.”</a></li>
         <li><a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26882.363694387897!2d-122.2169586!3d47.6859576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54906dabebbd6bbb:0x77db7c2a5c1f98ad!2sKirkland,%20WA!5e0!3m2!1sen!2sus!4v1731880000000!5m2!1sen!2sus" target="_blank">Google Maps: “Kirkland, WA.” Embedded API Map.</a></li>
-        <li><a href="Student Copyright Checklist.pdf" target="_blank">Student Copyright Checlist</a></li>
+        <li><a href="Student Copyright Checklist.pdf" target="_blank">Student Copyright Checklist</a></li>
         <li>www.kirklandwa.gov: KirkSeal.png</li>
+        <li><a href="https://www.kirklandwa.gov/Government/Departments/Parks-and-Community-Services/Find-a-Park/Marina-Park" target="_blank">Kirkland Marina Park Photo</a></li>
+        <li><a href="https://www.explorekirkland.com/things-to-do/parks/" target="_blank">Kirkland Overview Photo</a></li>
+        <li><a href="https://www.historylink.org/file/208" target="_blank">Kirkland History Photo</a></li>
+        <li><a href="https://sandee.com/united-states/washington/kirkland/houghton-beach-park" target="_blank">Houghton Beach Park Photo</a></li>
+      </ul>
     </div>
+
     <p class="center"><a href="index.html" class="btn">Back to Home</a></p>
-    <script>
-      function handleSelection() {
-        const value = document.getElementById("kirklandSelect").value;d
+  </div>
 
-        const content = document.getElementById("mainContent");
-        const whyMoveSection = document.getElementById("whyMoveSection");
-        const whyMoveBox = document.getElementById("whyMoveBox");
-        const whyMoveNav = document.getElementById("whyMoveNav");
+  <script>
+    function toggleAccordion(button) {
+      const content = button.nextElementSibling;
+      content.style.display =
+        content.style.display === "block" ? "none" : "block";
+    }
 
-        document.getElementById("welcomeBox").style.display = "none";
-        content.style.display = "block";
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+    }
 
-        if (value === "no") {
-          whyMoveSection.style.display = "block";
-          whyMoveBox.style.display = "block";
-          whyMoveNav.style.display = "inline";
-        } else {
-          whyMoveSection.style.display = "none";
-          whyMoveBox.style.display = "none";
-          whyMoveNav.style.display = "none";
-        }
-      }
-
-      function toggleAccordion(button) {
-        const content = button.nextElementSibling;
-        content.style.display =
-          content.style.display === "block" ? "none" : "block";
-      }
-
-      function scrollToSection(id) {
-        document.getElementById(id).scrollIntoView({ behavior: "smooth" });
-      }
-
-      function toggleTimeline(item) {
-        document
-          .querySelectorAll(".timeline-item")
-          .forEach((i) => i.classList.remove("active"));
-        item.classList.add("active");
-      }
-    </script>
-  </body>
+    function toggleTimeline(item) {
+      document
+        .querySelectorAll(".timeline-item")
+        .forEach((i) => i.classList.remove("active"));
+      item.classList.add("active");
+    }
+  </script>
+</body>
 </html>
