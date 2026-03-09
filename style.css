@@ -1,304 +1,230 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  :root {
-    --green: #1f4d3a;
-    --green-light: #2f6c52;
-    --gold: #d4b35b;
-    --soft-bg: #f7f7f5;
-    --text: #2a2a2a;
-  }
-  
-  body {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background: var(--soft-bg);
-    color: var(--text);
-    line-height: 1.7;
-    opacity: 0.97;
-  }
-  
-  header {
-    background: var(--green);
-    color: #fff;
-    padding: 60px 20px;
-    text-align: center;
-    border-bottom: 6px solid var(--gold);
-  }
-  header h1 {
-    font-size: 3rem;
-    font-weight: 800;
-  }
-  header p {
-    font-size: 1.25rem;
-    opacity: 0.9;
-  }
-  
-  .subnav {
-    background: #ffffffdd;
-    border-bottom: 2px solid var(--gold);
-    padding: 12px 0;
-    text-align: center;
-    backdrop-filter: blur(6px);
-    position: sticky;
-    top: 0;
-    z-index: 999;
-  }
-  
-  .subnav span {
-    margin: 0 15px;
-    font-weight: 600;
-    color: var(--green);
-    cursor: pointer;
-    position: relative;
-    padding-bottom: 4px;
-  }
-  
-  .subnav span::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -4px;
-    width: 0;
-    height: 3px;
-    background: var(--gold);
-    transition: width 0.25s ease;
-  }
-  
-  .subnav span:hover::after {
-    width: 100%;
-  }
-  
-  .wrapper {
-    max-width: 1180px;
-    margin: auto;
-    padding: 30px 20px;
-    display: none;
-  }
-  
-  h2 {
-    color: var(--green);
-    margin-top: 50px;
-    margin-bottom: 16px;
-    font-size: 2rem;
-    border-left: 6px solid var(--gold);
-    padding-left: 12px;
-  }
-  
-  a {
-    color: var(--green-light);
-  }
-  
-  .hero {
-    background: white;
-    padding: 40px;
-    margin-top: 35px;
-    border-radius: 18px;
-    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
-    display: flex;
-    gap: 40px;
-    align-items: center;
-  }
-  
-  .hero img {
-    width: 48%;
-    border-radius: 14px;
-  }
-  .hero-text {
-    width: 52%;
-  }
-  .hero-text h3 {
-    font-size: 1.9rem;
-    color: var(--green-light);
-    margin-bottom: 10px;
-  }
-  
-  .timeline {
-    position: relative;
-    padding: 40px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-top: 20px;
-  }
-  
-  .timeline::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: var(--gold);
-    z-index: 0;
-  }
-  
-  .timeline-item {
-    position: relative;
-    width: 18%;
-    text-align: center;
-    z-index: 1;
-    cursor: pointer;
-  }
-  
-  .timeline-item .circle {
-    width: 30px;
-    height: 30px;
-    background: var(--green-light);
-    border-radius: 50%;
-    margin: 0 auto 10px auto;
-    transition: transform 0.3s, background 0.3s;
-  }
-  
-  .timeline-item.active .circle {
-    transform: scale(1.3);
-    background: var(--green);
-  }
-  
-  .timeline-item h3 {
-    font-size: 1rem;
-    margin-bottom: 5px;
-    color: var(--green);
-  }
-  
-  .timeline-item p {
-    display: none;
-    font-size: 0.9rem;
-    padding: 10px;
-    background: white;
-    border-radius: 8px;
-    border: 1px solid var(--gold);
-    margin-top: 10px;
-    line-height: 1.4;
-  }
-  
-  .timeline-item.active p {
-    display: block;
-  }
-  
-  .map-box {
-    margin-top: 20px;
-  }
-  .map {
-    width: 100%;
-    height: 400px;
-    border-radius: 14px;
-    border: 2px solid var(--green-light);
-  }
-  
-  .card-list {
-    background: white;
-    padding: 30px;
-    border-radius: 16px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
-  }
-  .card-list ul {
-    margin-left: 20px;
-  }
-  
-  .card-list-info {
-    background: white;
-    padding: 30px;
-    border-radius: 16px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
-    margin: 80px;
-  }
-  .card-list-info ul {
-    margin-left: 20px;
-  }
-  
-  .accordion {
-    background: white;
-    border-radius: 12px;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    border-left: 5px solid var(--gold);
-    overflow: hidden;
-  }
-  .accordion button {
-    background: var(--green-light);
-    color: white;
-    padding: 16px 20px;
-    width: 100%;
-    border: none;
-    cursor: pointer;
-    text-align: left;
-    font-size: 16px;
-  }
-  .accordion-content {
-    display: none;
-    padding: 16px 20px;
-    background: #fafafa;
-  }
-  
-  .dropdown-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.65);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
-  }
-  
-  .dropdown-box {
-    background: white;
-    padding: 45px 60px;
-    border-radius: 16px;
-    text-align: center;
-    border-top: 6px solid var(--gold);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
-  }
-  select {
-    margin-top: 15px;
-    font-size: 17px;
-    padding: 10px;
-    border-radius: 6px;
-    width: 180px;
-  }
-  
-  .btn {
-    justify-content: center;
-    text-decoration: none;
-    background: var(--green-light);
-    color: white;
-    padding: 8px 30px;
-    margin: 30px 0;
-    border-radius: 30px;
-    transition: background 0.5s;
-  }
-  
-  .btn:hover {
-    background: var(--green);
-  }
-  .center {
-    text-align: center;
-    padding: 20px;
-  }
-  
-  .info {
-    text-align: left;
-    margin-left: 140px;
-    margin-right: 140px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-  }
-  
-  .info p {
-    margin-bottom: 20px;
-  }
-  
-  hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid var(--gold);
-    margin: 1em 0;
-    padding: 0;
-  }
-  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/jpg" href="KirkSeal.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Kirkland Compass</title>
+  <style>
+    .about-btn-wrapper { margin-top: 28px; }
+    .timeline-item p { display: none; }
+    .timeline-item.active p { display: block; }
+  </style>
+</head>
+
+<body class="home">
+
+<!-- Top utility bar -->
+<div class="topbar">
+  <div class="topbar-left">
+    <img src="KirkSeal.png" alt="Kirkland Seal">
+    <span>City of Kirkland, Washington</span>
+  </div>
+  <div>
+    <a href="https://www.kirklandwa.gov" target="_blank">Official City Site</a>
+    <a href="info.html">About</a>
+    <a href="resources.html">Resources</a>
+  </div>
+</div>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="eyebrow">Welcome to Kirkland</span>
+    <h1>Kirkland, Washington</h1>
+    <p>A community-focused guide for new residents and home seekers on the shores of Lake Washington.</p>
+  </div>
+</header>
+
+<!-- Subnav -->
+<div class="subnav">
+  <a href="#about">About</a>
+  <a href="#whyMoveSection">Why Move?</a>
+  <a href="#history">History</a>
+  <a href="#map">Map</a>
+  <a href="#communities">Communities</a>
+  <a href="#restaurants">Restaurants</a>
+  <a href="#parks">Parks</a>
+  <a href="#worksCited">Works Cited</a>
+</div>
+
+<!-- Main content -->
+<div class="wrapper">
+
+  <h2 id="about">About Kirkland</h2>
+  <div class="card-list">
+    <p>
+      Kirkland is a suburb of Seattle on the east side of Lake Washington. It is well-known
+      for its parks, trails, walkable waterfront downtown, and significant tech presence.
+      There are roughly 97,000 residents, excellent schools, and a high cost of living in the city.
+      EvergreenHealth is one of the major employers, and the name "Kirkland" is well-known because
+      the city inspired the original name of Costco's Kirkland Signature brand.
+      It provides great restaurants, fantastic views, outdoor activities, and a vibrant sense of community.
+    </p>
+  </div>
+  <div class="about-btn-wrapper">
+    <a href="info.html" class="btn">Learn More About Kirkland →</a>
+  </div>
+
+  <h2 id="whyMoveSection">Why Move to Kirkland?</h2>
+  <div class="card-list">
+    <p>Kirkland is a beautiful and welcoming lakeside city known for its safe neighborhoods,
+       thriving small businesses, and active community life. Here's why many people choose to move here:</p>
+    <ul style="margin-top: 14px;">
+      <li>Clean, safe neighborhoods with strong community feel</li>
+      <li>Waterfront parks, beaches, and scenic walking paths</li>
+      <li>Highly rated schools and youth programs</li>
+      <li>Great restaurants, coffee shops, and local businesses</li>
+      <li>Short commute to Seattle, Bellevue, or Redmond</li>
+      <li>Year-round festivals, markets, and events</li>
+    </ul>
+  </div>
+
+  <h2 id="history">History of Kirkland</h2>
+  <div class="timeline">
+    <div class="timeline-item" onclick="toggleTimeline(this)">
+      <div class="circle"></div>
+      <h3>1886</h3>
+      <p>Kirkland was founded by Peter Kirk with plans for a steel industry on Lake Washington.</p>
+    </div>
+    <div class="timeline-item" onclick="toggleTimeline(this)">
+      <div class="circle"></div>
+      <h3>1905</h3>
+      <p>Ferry access connected Kirkland to Seattle, boosting growth.</p>
+    </div>
+    <div class="timeline-item" onclick="toggleTimeline(this)">
+      <div class="circle"></div>
+      <h3>1980s</h3>
+      <p>Tech companies began to take root, driving rapid expansion.</p>
+    </div>
+    <div class="timeline-item" onclick="toggleTimeline(this)">
+      <div class="circle"></div>
+      <h3>2011</h3>
+      <p>Annexation of surrounding neighborhoods increased population and area.</p>
+    </div>
+    <div class="timeline-item" onclick="toggleTimeline(this)">
+      <div class="circle"></div>
+      <h3>Today</h3>
+      <p>Kirkland is home to diverse communities, businesses, waterfront recreation, and strong neighborhood connections.</p>
+    </div>
+  </div>
+  <a href="history.html" class="btn">Explore Kirkland's History →</a>
+
+  <h2 id="map">Kirkland City Map</h2>
+  <div class="map-box">
+    <iframe class="map"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26882.363694387897!2d-122.2169586!3d47.6859576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54906dabebbd6bbb%3A0x77db7c2a5c1f98ad!2sKirkland%2C%20WA!5e0!3m2!1sen!2sus!4v1731880000000!5m2!1sen!2sus">
+    </iframe>
+  </div>
+
+  <h2 id="communities">Communities You Can Join</h2>
+  <div class="card-list">
+    <ul>
+      <li><a href="https://kirklanddowntown.org/" target="_blank">Kirkland Downtown Association</a></li>
+      <li><a href="https://www.kirklandartscenter.org/" target="_blank">Kirkland Arts Center Groups</a></li>
+      <li><a href="https://www.juanitaneighborhood.com/" target="_blank">Juanita Neighborhood Association</a></li>
+      <li><a href="https://bridletrails.org/" target="_blank">Bridle Trails / Highlands Neighborhood</a></li>
+      <li><a href="https://www.kirklandwa.gov/departments/parks-community-services/volunteer" target="_blank">Kirkland Parks Volunteer Teams</a></li>
+      <li><a href="https://nextdoor.com" target="_blank">Nextdoor - Kirkland</a></li>
+      <li><a href="https://www.kirklandwa.gov/Government/Departments/Parks-and-Community-Services/Recreation-Programs-Services/50-Activities-and-Services/Community-Resources" target="_blank">Kirkland Community Resources</a></li>
+    </ul>
+  </div>
+
+  <h2 id="restaurants">Popular Restaurants</h2>
+  <div class="card-list">
+    <ul>
+      <li><strong><a href="https://www.derumarket.com" target="_blank">Deru Market</a></strong> — 723 9th Ave • (425) 298-0268</li>
+      <li><strong><a href="https://www.cactusrestaurants.com/location/locations-kirkland" target="_blank">Cactus</a></strong> — 121 Park Ln • (425) 893-9799</li>
+      <li><strong><a href="https://www.anthonys.com/restaurant/anthonys-homeport-kirkland/" target="_blank">Anthony's HomePort</a></strong> — 135 Lake St S • (425) 822-0225</li>
+      <li><strong><a href="https://isarnkitchen.com" target="_blank">Isarn Thai</a></strong> — 170 Lake St S • (425) 298-4429</li>
+      <li><strong><a href="https://volterrakirkland.com" target="_blank">Volterra</a></strong> — 121 Kirkland Ave • (425) 202-7201</li>
+      <li><strong><a href="https://ristoranteparadiso.com" target="_blank">Ristorante Paradiso</a></strong> — 120 Park Ln Suite A • (425) 889-8601</li>
+    </ul>
+  </div>
+
+  <h2 id="parks">Discover Parks</h2>
+
+  <div class="accordion">
+    <input type="checkbox" id="accordion1" />
+    <label for="accordion1">Marina Park</label>
+    <div class="accordion-content">
+      <p>Marina Park features a sandy beach, boat launch, public art and a beautiful open-air pavilion as well as summer concerts and magnificent views. 25 Lakeshore Plaza Drive, Kirkland 98033</p>
+    </div>
+  </div>
+  <div class="accordion">
+    <input type="checkbox" id="accordion2" />
+    <label for="accordion2">Juanita Bay Park</label>
+    <div class="accordion-content">
+      <p>Juanita Bay Park features flora, fauna, views of Forbes Creek Wetland, Juanita Beach, and Juanita Bay. 2201 Market St, Kirkland 98033</p>
+    </div>
+  </div>
+  <div class="accordion">
+    <input type="checkbox" id="accordion3" />
+    <label for="accordion3">McAuliffe Park</label>
+    <div class="accordion-content">
+      <p>McAuliffe Park is located on a historic farm site in Kirkland's Juanita neighborhood. 10824 NE 116 Street, Kirkland 98034</p>
+    </div>
+  </div>
+  <div class="accordion">
+    <input type="checkbox" id="accordion4" />
+    <label for="accordion4">Houghton Beach Park</label>
+    <div class="accordion-content">
+      <p>A waterfront community park located in Kirkland's Lakeview neighborhood. 5811 Lake Washington Blvd, Kirkland 98033</p>
+    </div>
+  </div>
+  <div class="accordion">
+    <input type="checkbox" id="accordion5" />
+    <label for="accordion5">Everest Park</label>
+    <div class="accordion-content">
+      <p>Everest Park is a community park with many amenities, including pickleball courts, ballfields, a playground, and a picnic shelter. 500 8th St S, Kirkland 98033</p>
+    </div>
+  </div>
+
+  <h2 id="worksCited">Works Cited</h2>
+  <a href="resources.html" class="btn">View Resources →</a>
+
+</div>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h4>Kirkland Compass</h4>
+      <p>A community-focused guide for new residents<br>and home seekers in Kirkland, Washington.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#about">About Kirkland</a></li>
+        <li><a href="#communities">Communities</a></li>
+        <li><a href="#parks">Parks</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="resources.html">Resources</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Official City</h4>
+      <ul>
+        <li><a href="https://www.kirklandwa.gov" target="_blank">kirklandwa.gov</a></li>
+        <li><a href="https://www.kirklandwa.gov/Resident" target="_blank">Resident Services</a></li>
+        <li><a href="https://www.kirklandwa.gov/Whats-Happening" target="_blank">What's Happening</a></li>
+        <li><a href="https://www.kirklandwa.gov/Government/Contact-Us" target="_blank">Contact the City</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>2026 Kirkland Compass — TSA Web Design Project</span>
+    <span>Kirkland, Washington 98033</span>
+  </div>
+</footer>
+
+<script>
+function toggleTimeline(item) {
+  item.classList.toggle("active");
+}
+</script>
+
+</body>
+</html>
