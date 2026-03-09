@@ -1,61 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/jpg" href="KirkSeal.png" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Kirkland Compass</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/jpg" href="KirkSeal.png" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Kirkland Compass - Info</title>
+</head>
 
-  <body>
-    <header>
+<body class="info">
+  <header class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
       <h1>All About Kirkland, Washington</h1>
       <p>More Information on Kirkland</p>
-    </header>
+    </div>
+  </header>
+
+  <div class="wrapper">
     <div class="card-list-info">
-        <p>Kirkland is a city located in King County on the east side of Lake Washington. For those commuting or visiting the place, it's very convenient as it is just about ten miles northeast of Seattle. Kirkland is known for its active community life, its downtown area full of pedestrians, and the nature parks close to the lake. The city mixes pretty nature with the comfort of modernity. One of the biggest attractions of Kirkland is the Lake Washington. Kirkland has more waterfront parks than many other cities in the area. The parks like Marina Park, Juanita Beach Park, and Houghton Beach are the most frequented spots where the public gets to be near the water easily. These parks are used for activities like swimming, boating, biking, and picnics. The Cross Kirkland Corridor is another famous attraction providing a long trail meant for walking and biking all the way through the city.</p>
-        </div>
+      <p>
+        Kirkland is a city located in King County on the east side of Lake Washington. For those commuting or visiting the place, it's very convenient as it is just about ten miles northeast of Seattle. Kirkland is known for its active community life, its downtown area full of pedestrians, and the nature parks close to the lake. The city mixes pretty nature with the comfort of modernity. One of the biggest attractions of Kirkland is Lake Washington. Kirkland has more waterfront parks than many other cities in the area. Parks like Marina Park, Juanita Beach Park, and Houghton Beach are the most frequented spots where the public gets to be near the water easily. These parks are used for activities like swimming, boating, biking, and picnics. The Cross Kirkland Corridor is another famous attraction providing a long trail meant for walking and biking all the way through the city.
+      </p>
+    </div>
+
     <p class="center"><a href="index.html" class="btn">Back to Home</a></p>
-    <script>
-      function handleSelection() {
-        const value = document.getElementById("kirklandSelect").value;
+  </div>
 
-        const content = document.getElementById("mainContent");
-        const whyMoveSection = document.getElementById("whyMoveSection");
-        const whyMoveBox = document.getElementById("whyMoveBox");
-        const whyMoveNav = document.getElementById("whyMoveNav");
+  <script>
+    function toggleAccordion(button) {
+      const content = button.nextElementSibling;
+      content.style.display =
+        content.style.display === "block" ? "none" : "block";
+    }
 
-        document.getElementById("welcomeBox").style.display = "none";
-        content.style.display = "block";
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+    }
 
-        if (value === "no") {
-          whyMoveSection.style.display = "block";
-          whyMoveBox.style.display = "block";
-          whyMoveNav.style.display = "inline";
-        } else {
-          whyMoveSection.style.display = "none";
-          whyMoveBox.style.display = "none";
-          whyMoveNav.style.display = "none";
-        }
-      }
-
-      function toggleAccordion(button) {
-        const content = button.nextElementSibling;
-        content.style.display =
-          content.style.display === "block" ? "none" : "block";
-      }
-
-      function scrollToSection(id) {
-        document.getElementById(id).scrollIntoView({ behavior: "smooth" });
-      }
-
-      function toggleTimeline(item) {
-        document
-          .querySelectorAll(".timeline-item")
-          .forEach((i) => i.classList.remove("active"));
-        item.classList.add("active");
-      }
-    </script>
-  </body>
+    function toggleTimeline(item) {
+      document
+        .querySelectorAll(".timeline-item")
+        .forEach((i) => i.classList.remove("active"));
+      item.classList.add("active");
+    }
+  </script>
+</body>
 </html>
