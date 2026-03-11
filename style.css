@@ -174,6 +174,29 @@ body.activities header.hero {
   border-bottom-color: var(--gold);
 }
 
+.page-link{
+  margin-left:120px;
+}
+
+.subnav a.page-link {
+  color: var(--green);
+  background: rgba(212, 180, 91, 0.305);
+  border-radius: 3px;
+  padding: 0 14px;
+}
+
+.subnav a.page-link::before {
+  content: '↗';
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin-right: 4px;
+}
+
+.subnav a.page-link:hover {
+  background: rgba(212, 180, 91, 0.501);
+  border-bottom-color: var(--gold);
+}
+
 .wrapper {
   max-width: 1180px;
   margin: auto;
@@ -579,8 +602,4 @@ body.resources {
   .subnav a { font-size: 0.7rem; padding: 0 8px; white-space: nowrap; }
   footer.site-footer .footer-inner { grid-template-columns: 1fr; gap: 24px; }
   footer.site-footer .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
-}
-
-.activities-link{
-  margin-left:120px;
 }
