@@ -20,14 +20,10 @@ body {
   line-height: 1.7;
 }
 
-/* ── Scroll offset fix ───────────────────────────────────────── */
 h2[id] {
   scroll-margin-top: calc(var(--subnav-height) + 20px);
 }
 
-/* ══════════════════════════════════════════════════════════════
-   TOP BAR  (mimics kirklandwa.gov's slim utility bar)
-══════════════════════════════════════════════════════════════ */
 .topbar {
   background: var(--green);
   color: rgba(255,255,255,0.75);
@@ -68,9 +64,6 @@ h2[id] {
   text-transform: uppercase;
 }
 
-/* ══════════════════════════════════════════════════════════════
-   HERO
-══════════════════════════════════════════════════════════════ */
 header.hero {
   position: relative;
   height: 70vh;
@@ -94,13 +87,17 @@ body.info header.hero {
   background-image: url('https://explore-kirkland.s3.amazonaws.com/images/main-images/202206_Kirkland_Downtown_Aerial_NeirChris_0820_74346e7f-d746-4094-87b5-46748b6c948f.jpg?v=1761868730');
 }
 
+body.activities header.hero {
+  background-image: url('https://images.squarespace-cdn.com/content/v1/61528b1f9e031c2872c8d9ec/b882dac2-40ad-4f69-a99f-5ab2ddd0e395/Juanita_1.jpg');
+}
+
 .hero-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     to top,
     rgba(10, 35, 25, 0.82) 0%,
-    rgba(10, 35, 25, 0.35) 55%,
+    rgba(10, 35, 25, 0.35) 25%,
     rgba(0,0,0,0.1) 100%
   );
 }
@@ -140,9 +137,6 @@ body.info header.hero {
   line-height: 1.65;
 }
 
-/* ══════════════════════════════════════════════════════════════
-   SUBNAV
-══════════════════════════════════════════════════════════════ */
 .subnav {
   height: var(--subnav-height);
   background: white;
@@ -180,18 +174,12 @@ body.info header.hero {
   border-bottom-color: var(--gold);
 }
 
-/* ══════════════════════════════════════════════════════════════
-   WRAPPER
-══════════════════════════════════════════════════════════════ */
 .wrapper {
   max-width: 1180px;
   margin: auto;
   padding: 50px 28px 90px;
 }
 
-/* ══════════════════════════════════════════════════════════════
-   SECTION HEADINGS  — city-gov style label + rule
-══════════════════════════════════════════════════════════════ */
 h2 {
   color: var(--green);
   margin-top: 64px;
@@ -218,9 +206,6 @@ h2::after {
   border-radius: 2px;
 }
 
-/* ══════════════════════════════════════════════════════════════
-   LINKS
-══════════════════════════════════════════════════════════════ */
 a {
   color: var(--green-light);
   transition: color 0.2s ease;
@@ -228,9 +213,6 @@ a {
 
 a:hover { color: var(--green); }
 
-/* ══════════════════════════════════════════════════════════════
-   CARDS  — cleaner, more official look
-══════════════════════════════════════════════════════════════ */
 .card-list,
 .card-list-info {
   background: white;
@@ -283,9 +265,6 @@ a:hover { color: var(--green); }
   z-index: 1;
 }
 
-/* ══════════════════════════════════════════════════════════════
-   TIMELINE
-══════════════════════════════════════════════════════════════ */
 .timeline {
   position: relative;
   padding: 44px 0 20px;
@@ -361,9 +340,6 @@ a:hover { color: var(--green); }
 
 .timeline-item.active p { display: block; }
 
-/* ══════════════════════════════════════════════════════════════
-   MAP
-══════════════════════════════════════════════════════════════ */
 .map-box { margin-top: 20px; }
 
 .map {
@@ -375,9 +351,6 @@ a:hover { color: var(--green); }
   display: block;
 }
 
-/* ══════════════════════════════════════════════════════════════
-   ACCORDION  — clean gov-style panels
-══════════════════════════════════════════════════════════════ */
 .accordion {
   background: white;
   border-radius: 6px;
@@ -450,9 +423,7 @@ a:hover { color: var(--green); }
   border-top: 1px solid #eeede9;
 }
 
-/* ══════════════════════════════════════════════════════════════
-   BUTTON
-══════════════════════════════════════════════════════════════ */
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -478,9 +449,6 @@ a:hover { color: var(--green); }
   box-shadow: 0 5px 16px rgba(0,0,0,0.18);
 }
 
-/* ══════════════════════════════════════════════════════════════
-   CENTER / GALLERY / CAPTIONS
-══════════════════════════════════════════════════════════════ */
 .center { text-align: center; padding: 20px; }
 
 .gallery-container {
@@ -516,9 +484,6 @@ figcaption {
   letter-spacing: 0.01em;
 }
 
-/* ══════════════════════════════════════════════════════════════
-   WORKS CITED
-══════════════════════════════════════════════════════════════ */
 .works-cited {
   margin-top: 40px;
   border-top: 2px solid #ddd;
@@ -527,9 +492,6 @@ figcaption {
 
 .works-cited ul { padding-left: 20px; }
 
-/* ══════════════════════════════════════════════════════════════
-   FOOTER  — city-style footer
-══════════════════════════════════════════════════════════════ */
 footer.site-footer {
   background: var(--green);
   color: rgba(255,255,255,0.7);
@@ -584,9 +546,7 @@ footer.site-footer .footer-bottom {
   color: rgba(255,255,255,0.4);
 }
 
-/* ══════════════════════════════════════════════════════════════
-   PAGE THEMES
-══════════════════════════════════════════════════════════════ */
+body.activities,
 body.home,
 body.info {
   --green: #25684c;
@@ -612,9 +572,6 @@ body.resources {
   --text: #1f2f3a;
 }
 
-/* ══════════════════════════════════════════════════════════════
-   RESPONSIVE
-══════════════════════════════════════════════════════════════ */
 @media (max-width: 768px) {
   .topbar { display: none; }
   .hero-content { padding: 0 24px 40px; }
@@ -622,4 +579,8 @@ body.resources {
   .subnav a { font-size: 0.7rem; padding: 0 8px; white-space: nowrap; }
   footer.site-footer .footer-inner { grid-template-columns: 1fr; gap: 24px; }
   footer.site-footer .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+}
+
+.activities-link{
+  margin-left:120px;
 }
