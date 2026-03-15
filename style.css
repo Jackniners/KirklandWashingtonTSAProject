@@ -595,11 +595,123 @@ body.resources {
   --text: #1f2f3a;
 }
 
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background: var(--green);
+  padding: 8px 0;
+}
+
+.mobile-menu a {
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  padding: 12px 24px;
+  font-size: 0.85rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  letter-spacing: 0.05em;
+}
+
+.mobile-menu a:hover { color: var(--gold); }
+
+.mobile-menu.open { display: flex; }
+
 @media (max-width: 768px) {
-  .topbar { display: none; }
-  .hero-content { padding: 0 24px 40px; }
-  .subnav { gap: 0; overflow-x: auto; justify-content: flex-start; padding: 0 12px; }
-  .subnav a { font-size: 0.7rem; padding: 0 8px; white-space: nowrap; }
-  footer.site-footer .footer-inner { grid-template-columns: 1fr; gap: 24px; }
-  footer.site-footer .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+
+  .topbar-links { display: none; }
+  .hamburger { display: block; }
+
+  .hero-content {
+    padding: 0 20px 36px;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .subnav {
+    height: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 6px 8px;
+    gap: 4px;
+    overflow-x: unset;
+  }
+
+  .subnav a {
+    font-size: 0.68rem;
+    padding: 6px 10px;
+    height: auto;
+    white-space: nowrap;
+    border-radius: 3px;
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+
+  .subnav a:hover {
+    border-bottom-color: transparent;
+  }
+
+  .page-link {
+    margin-left: 0;
+  }
+
+  .timeline {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 0 0 20px 20px;
+  }
+
+  .timeline::before {
+    top: 0;
+    left: 13px;
+    width: 3px;
+    height: 100%;
+  }
+
+  .timeline-item {
+    position: relative;
+    width: 100%;
+    text-align: left;
+    padding: 0 0 28px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .timeline-item .circle {
+    position: absolute;
+    left: -34px;
+    margin: 0;
+    top: 2px;
+  }
+
+  .timeline-item p {
+    text-align: left;
+  }
+
+  .wrapper {
+    padding: 30px 16px 60px;
+  }
+
+  footer.site-footer .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  footer.site-footer .footer-bottom {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+
 }
