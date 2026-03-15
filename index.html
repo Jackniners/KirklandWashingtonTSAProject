@@ -1,164 +1,175 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/jpg" href="KirkSeal.png">
-  <link rel="stylesheet" href="style.css">
-  <title>Kirkland Compass</title>
-  <style>
-    .about-btn-wrapper { margin-top: 28px; }
-    .timeline-item p { display: none; }
-    .timeline-item.active p { display: block; }
-  </style>
-</head>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpg" href="KirkSeal.png">
+    <link rel="stylesheet" href="style.css">
+    <title>Kirkland Compass</title>
+    <style>
+      .about-btn-wrapper { margin-top: 28px; }
+      .timeline-item p { display: none; }
+      .timeline-item.active p { display: block; }
+    </style>
+  </head>
 
-<body class="home">
+  <body class="home">
 
-<div class="topbar">
-  <div class="topbar-left">
-    <img src="KirkSeal.png" alt="Kirkland Seal">
-    <span>City of Kirkland, Washington</span>
+  <div class="topbar">
+    <div class="topbar-left">
+      <img src="KirkSeal.png" alt="Kirkland Seal">
+      <span>City of Kirkland, Washington</span>
+    </div>
+    <div class="topbar-links">
+      <a href="https://www.kirklandwa.gov" target="_blank">Official City Site</a>
+      <a href="activities.html">Activities</a>
+      <a href="info.html">About</a>
+      <a href="history.html">History</a>
+      <a href="resources.html">Resources</a>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
   </div>
-  <div>
+  <div class="mobile-menu" id="mobileMenu">
     <a href="https://www.kirklandwa.gov" target="_blank">Official City Site</a>
     <a href="activities.html">Activities</a>
     <a href="info.html">About</a>
     <a href="history.html">History</a>
     <a href="resources.html">Resources</a>
   </div>
-</div>
 
-<header class="hero">
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <span class="eyebrow">Welcome to Kirkland</span>
-    <h1>Kirkland, Washington</h1>
-    <p>A community-focused guide for new residents and home seekers on the shores of Lake Washington.</p>
-  </div>
-</header>
+  <header class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="eyebrow">Welcome to Kirkland</span>
+      <h1>Kirkland, Washington</h1>
+      <p>A community-focused guide for new residents and home seekers on the shores of Lake Washington.</p>
+    </div>
+  </header>
 
-<div class="subnav">
-  <a href="#about">About</a>
-  <a href="#whyMoveSection">Why Move?</a>
-  <a href="#history">History</a>
-  <a href="#map">Map</a>
-  <a href="#worksCited">Works Cited</a>
-  <a href="activities.html" class="page-link">Activities</a>
-</div>
-
-<div class="wrapper">
-
-  <h2 id="about">About Kirkland</h2>
-  <div class="card-list">
-    <p>
-      Kirkland is a suburb of Seattle on the east side of Lake Washington. It is well-known
-      for its parks, trails, walkable waterfront downtown, and significant tech presence.
-      There is around 100,000 residents and excellent schools.
-      EvergreenHealth is one of the major employers, and the name "Kirkland" is well-known because
-      the city inspired the original name of Costco's Kirkland Signature brand.
-      It provides great restaurants, fantastic views, outdoor activities, and a vibrant sense of community.
-    </p>
-  </div>
-  <div class="about-btn-wrapper">
-    <a href="info.html" class="btn">Learn More About Kirkland ↵</a>
+  <div class="subnav">
+    <a href="#about">About</a>
+    <a href="#whyMoveSection">Why Move?</a>
+    <a href="#history">History</a>
+    <a href="#map">Map</a>
+    <a href="#worksCited">Works Cited</a>
+    <a href="activities.html" class="page-link">Activities</a>
   </div>
 
-  <h2 id="whyMoveSection">Why Move to Kirkland?</h2>
-  <div class="card-list">
-    <p>Kirkland is a beautiful and welcoming lakeside city known for its safe neighborhoods,
-       thriving small businesses, and active community life. Here's why many people choose to move here:</p>
-    <ul style="margin-top: 14px;">
-      <li>Clean, safe neighborhoods with strong community feel</li>
-      <li>Waterfront parks, beaches, and scenic walking paths</li>
-      <li>Highly rated schools and youth programs</li>
-      <li>Great restaurants, coffee shops, and local businesses</li>
-      <li>Short commute to Seattle, Bellevue, or Redmond</li>
-      <li>Year-round festivals, markets, and events</li>
-    </ul>
-  </div>
+  <div class="wrapper">
 
-  <h2 id="history">History of Kirkland</h2>
-  <div class="timeline">
-    <div class="timeline-item" onclick="toggleTimeline(this)">
-      <div class="circle"></div>
-      <h3>1886</h3>
-      <p>Kirkland was founded by Peter Kirk with plans for a steel industry on Lake Washington.</p>
+    <h2 id="about">About Kirkland</h2>
+    <div class="card-list">
+      <p>
+        Kirkland is a suburb of Seattle on the east side of Lake Washington. It is well-known
+        for its parks, trails, walkable waterfront downtown, and significant tech presence.
+        There is around 100,000 residents and excellent schools.
+        EvergreenHealth is one of the major employers, and the name "Kirkland" is well-known because
+        the city inspired the original name of Costco's Kirkland Signature brand.
+        It provides great restaurants, fantastic views, outdoor activities, and a vibrant sense of community.
+      </p>
     </div>
-    <div class="timeline-item" onclick="toggleTimeline(this)">
-      <div class="circle"></div>
-      <h3>1905</h3>
-      <p>Ferry access connected Kirkland to Seattle, boosting growth.</p>
+    <div class="about-btn-wrapper">
+      <a href="info.html" class="btn">Learn More About Kirkland ↵</a>
     </div>
-    <div class="timeline-item" onclick="toggleTimeline(this)">
-      <div class="circle"></div>
-      <h3>1980</h3>
-      <p>Tech companies began to take root, driving rapid expansion.</p>
-    </div>
-    <div class="timeline-item" onclick="toggleTimeline(this)">
-      <div class="circle"></div>
-      <h3>2011</h3>
-      <p>Annexation of surrounding neighborhoods increased population and area.</p>
-    </div>
-    <div class="timeline-item" onclick="toggleTimeline(this)">
-      <div class="circle"></div>
-      <h3>Today</h3>
-      <p>Kirkland is home to diverse communities, businesses, waterfront recreation, and strong neighborhood connections.</p>
-    </div>
-  </div>
-  
-  <a href="history.html" class="btn">Explore Kirkland's History ↵</a>
 
-  <h2 id="map">Kirkland City Map</h2>
-  <div class="map-box">
-    <iframe class="map"
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26882.363694387897!2d-122.2169586!3d47.6859576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54906dabebbd6bbb%3A0x77db7c2a5c1f98ad!2sKirkland%2C%20WA!5e0!3m2!1sen!2sus!4v1731880000000!5m2!1sen!2sus">
-    </iframe>
-  </div>
-
-  <h2 id="worksCited">Works Cited</h2>
-  <a href="resources.html" class="btn">View Resources ↵</a>
-
-</div>
-
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div>
-      <h4>Kirkland Compass</h4>
-      <p>A community-focused guide for new residents<br>and home seekers in Kirkland, Washington.</p>
-    </div>
-    <div>
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="#about">About Kirkland</a></li>
-        <li><a href="#communities">Communities</a></li>
-        <li><a href="#parks">Parks</a></li>
-        <li><a href="history.html">History</a></li>
-        <li><a href="resources.html">Resources</a></li>
+    <h2 id="whyMoveSection">Why Move to Kirkland?</h2>
+    <div class="card-list">
+      <p>Kirkland is a beautiful and welcoming lakeside city known for its safe neighborhoods,
+        thriving small businesses, and active community life. Here's why many people choose to move here:</p>
+      <ul style="margin-top: 14px;">
+        <li>Clean, safe neighborhoods with strong community feel</li>
+        <li>Waterfront parks, beaches, and scenic walking paths</li>
+        <li>Highly rated schools and youth programs</li>
+        <li>Great restaurants, coffee shops, and local businesses</li>
+        <li>Short commute to Seattle, Bellevue, or Redmond</li>
+        <li>Year-round festivals, markets, and events</li>
       </ul>
     </div>
-    <div>
-      <h4>Official City</h4>
-      <ul>
-        <li><a href="https://www.kirklandwa.gov" target="_blank">kirklandwa.gov</a></li>
-        <li><a href="https://www.kirklandwa.gov/Resident" target="_blank">Resident Services</a></li>
-        <li><a href="https://www.kirklandwa.gov/Whats-Happening" target="_blank">What's Happening</a></li>
-        <li><a href="https://www.kirklandwa.gov/Government/Contact-Us" target="_blank">Contact the City</a></li>
-      </ul>
+
+    <h2 id="history">History of Kirkland</h2>
+    <div class="timeline">
+      <div class="timeline-item" onclick="toggleTimeline(this)">
+        <div class="circle"></div>
+        <h3>1886</h3>
+        <p>Kirkland was founded by Peter Kirk with plans for a steel industry on Lake Washington.</p>
+      </div>
+      <div class="timeline-item" onclick="toggleTimeline(this)">
+        <div class="circle"></div>
+        <h3>1905</h3>
+        <p>Ferry access connected Kirkland to Seattle, boosting growth.</p>
+      </div>
+      <div class="timeline-item" onclick="toggleTimeline(this)">
+        <div class="circle"></div>
+        <h3>1980</h3>
+        <p>Tech companies began to take root, driving rapid expansion.</p>
+      </div>
+      <div class="timeline-item" onclick="toggleTimeline(this)">
+        <div class="circle"></div>
+        <h3>2011</h3>
+        <p>Annexation of surrounding neighborhoods increased population and area.</p>
+      </div>
+      <div class="timeline-item" onclick="toggleTimeline(this)">
+        <div class="circle"></div>
+        <h3>Today</h3>
+        <p>Kirkland is home to diverse communities, businesses, waterfront recreation, and strong neighborhood connections.</p>
+      </div>
     </div>
+    
+    <a href="history.html" class="btn">Explore Kirkland's History ↵</a>
+
+    <h2 id="map">Kirkland City Map</h2>
+    <div class="map-box">
+      <iframe class="map"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26882.363694387897!2d-122.2169586!3d47.6859576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54906dabebbd6bbb%3A0x77db7c2a5c1f98ad!2sKirkland%2C%20WA!5e0!3m2!1sen!2sus!4v1731880000000!5m2!1sen!2sus">
+      </iframe>
+    </div>
+
+    <h2 id="worksCited">Works Cited</h2>
+    <a href="resources.html" class="btn">View Resources ↵</a>
+
   </div>
-  <div class="footer-bottom">
-    <span>2026 Kirkland Compass — TSA Web Design Project</span>
-    <span>Kirkland, Washington 98033</span>
-  </div>
-</footer>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <h4>Kirkland Compass</h4>
+        <p>A community-focused guide for new residents<br>and home seekers in Kirkland, Washington.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about">About Kirkland</a></li>
+          <li><a href="#communities">Communities</a></li>
+          <li><a href="#parks">Parks</a></li>
+          <li><a href="history.html">History</a></li>
+          <li><a href="resources.html">Resources</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Official City</h4>
+        <ul>
+          <li><a href="https://www.kirklandwa.gov" target="_blank">kirklandwa.gov</a></li>
+          <li><a href="https://www.kirklandwa.gov/Resident" target="_blank">Resident Services</a></li>
+          <li><a href="https://www.kirklandwa.gov/Whats-Happening" target="_blank">What's Happening</a></li>
+          <li><a href="https://www.kirklandwa.gov/Government/Contact-Us" target="_blank">Contact the City</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>2026 Kirkland Compass — TSA Web Design Project</span>
+      <span>Kirkland, Washington 98033</span>
+    </div>
+  </footer>
 
 <script>
 function toggleTimeline(item) {
   item.classList.toggle("active");
 }
+
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
 </script>
 
-</body>
-</html>
-
+  </body>
+  </html>
