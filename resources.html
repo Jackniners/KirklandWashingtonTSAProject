@@ -8,6 +8,28 @@
   <title>Kirkland Compass - Resources</title>
 </head>
 
+<div class="topbar">
+      <div class="topbar-left">
+        <img src="KirkSeal.png" alt="Kirkland Seal">
+        <span>City of Kirkland, Washington</span>
+      </div>
+      <div class="topbar-links">
+        <a href="https://www.kirklandwa.gov" target="_blank">Official City Site</a>
+        <a href="index.html">Home</a>
+        <a href="activities.html">Activities</a>
+        <a href="info.html">About</a>
+        <a href="history.html">History</a>
+      </div>
+      <button class="hamburger" onclick="toggleMenu()">☰</button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="https://www.kirklandwa.gov" target="_blank">Official City Site</a>
+      <a href="index.html">Home</a>
+      <a href="activities.html">Activities</a>
+      <a href="info.html">About</a>
+      <a href="history.html">History</a>
+    </div>
+
 <body class="resources">
   <header class="hero">
     <div class="hero-overlay"></div>
@@ -38,22 +60,27 @@
   </div>
 
   <script>
-    function toggleAccordion(button) {
-      const content = button.nextElementSibling;
-      content.style.display =
-        content.style.display === "block" ? "none" : "block";
-    }
+      function toggleAccordion(button) {
+        const content = button.nextElementSibling;
+        content.style.display =
+          content.style.display === "block" ? "none" : "block";
+      }
 
-    function scrollToSection(id) {
-      document.getElementById(id).scrollIntoView({ behavior: "smooth" });
-    }
+      function scrollToSection(id) {
+        document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+      }
 
-    function toggleTimeline(item) {
-      document
-        .querySelectorAll(".timeline-item")
-        .forEach((i) => i.classList.remove("active"));
-      item.classList.add("active");
-    }
-  </script>
+      function toggleTimeline(item) {
+        document
+          .querySelectorAll(".timeline-item")
+          .forEach((i) => i.classList.remove("active"));
+        item.classList.add("active");
+
+      }
+
+      function toggleMenu() {
+        document.getElementById('mobileMenu').classList.toggle('open');
+      }
+    </script>
 </body>
 </html>
