@@ -8,19 +8,27 @@
   <title>Activities - Kirkland Compass</title>
 </head>
 
-<div class="topbar">
-  <div class="topbar-left">
-    <img src="KirkSeal.png" alt="Kirkland Seal">
-    <span>City of Kirkland, Washington</span>
+  <div class="topbar">
+    <div class="topbar-left">
+      <img src="KirkSeal.png" alt="Kirkland Seal">
+      <span>City of Kirkland, Washington</span>
+    </div>
+    <div class="topbar-links">
+      <a href="https://www.kirklandwa.gov" target="_blank">Official City Site</a>
+      <a href="activities.html">Activities</a>
+      <a href="info.html">About</a>
+      <a href="history.html">History</a>
+      <a href="resources.html">Resources</a>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
   </div>
-  <div>
-    <a href="https://www.kirklandwa.gov/Government/Departments/Parks-and-Community-Services/Find-a-Park" target="_blank">Find a Park</a>
-    <a href="index.html">Home</a>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="https://www.kirklandwa.gov" target="_blank">Official City Site</a>
+    <a href="activities.html">Activities</a>
     <a href="info.html">About</a>
     <a href="history.html">History</a>
     <a href="resources.html">Resources</a>
   </div>
-</div>
 
 <body class="activities">
   <header class="hero">
@@ -194,6 +202,11 @@
         .querySelectorAll(".timeline-item")
         .forEach((i) => i.classList.remove("active"));
       item.classList.add("active");
+
+    }
+
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
     }
   </script>
 </body>
