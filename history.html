@@ -8,28 +8,6 @@
   <title>Kirkland Compass - History</title>
 </head>
 
-<div class="topbar">
-      <div class="topbar-left">
-        <img src="KirkSeal.png" alt="Kirkland Seal">
-        <span>City of Kirkland, Washington</span>
-      </div>
-      <div class="topbar-links">
-        <a href="https://www.kirklandwa.gov" target="_blank">Official City Site</a>
-        <a href="index.html">Home</a>
-        <a href="activities.html">Activities</a>
-        <a href="info.html">About</a>
-        <a href="resources.html">Resources</a>
-      </div>
-      <button class="hamburger" onclick="toggleMenu()">☰</button>
-    </div>
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="https://www.kirklandwa.gov" target="_blank">Official City Site</a>
-        <a href="index.html">Home</a>
-        <a href="activities.html">Activities</a>
-        <a href="info.html">About</a>
-        <a href="resources.html">Resources</a>
-    </div>
-
 <body class="history">
   <header class="hero">
     <div class="hero-overlay"></div>
@@ -39,8 +17,40 @@
     </div>
   </header>
 
+<div class="subnav">
+  <div class="subnav-item">
+    <a href="index.html">Home</a>
+    <div class="subnav-dropdown">
+      <a href="index.html#about">About</a>
+      <a href="index.html#whyMoveSection">Why Move?</a>
+      <a href="index.html#history">History</a>
+      <a href="index.html#map">Map</a>
+      <a href="index.html#worksCited">Works Cited</a>
+    </div>
+  </div>
+  <div class="subnav-item">
+    <a href="activities.html">Activities</a>
+    <div class="subnav-dropdown">
+      <a href="activities.html#things-to-do">Things to Do</a>
+      <a href="activities.html#restaurants">Restaurants</a>
+      <a href="activities.html#parks">Parks</a>
+      <a href="activities.html#map">Map</a>
+      <a href="activities.html#communities">Communities</a>
+    </div>
+  </div>
+  <a href="info.html">About</a>
+  <a href="history.html">History</a>
+  <div class="subnav-item">
+    <a href="resources.html">Resources</a>
+    <div class="subnav-dropdown">
+      <a href="WebsiteDesignWorkLog.pdf">Work Log</a>
+      <a href="Student Copyright Checklist.pdf">Student Copyright Checklist</a>
+    </div>
+  </div>
+</div>
+
   <div class="wrapper">
-    <div class="card-list-info">
+    <div class="card-list">
       <p>Peter Kirk, a British steel tycoon, came to the Pacific Northwest in the 1880s with a vision of building an industrial city on the eastern shore of Lake Washington; a "Pittsburgh of the West." He and several Seattle businessmen constructed the Moss Bay Iron and Steel Works in 1890, planning to tap the mineral wealth of Snoqualmie Pass. But the economic collapse of 1893 forced the mill to close before a single piece of steel was ever made.<br>
         <br>Despite that failure, Kirkland incorporated in 1905 with 400 residents and found new life through shipbuilding and wool milling. Washington's first wool mill, established in Kirkland in 1892, supplied goods during the Alaskan Gold Rush and WWI. By 1940, the Lake Washington Shipyard was building warships for the U.S. Navy, producing over 25 ships during World War II on what is now Carillon Point.<br>
         <br>The city grew steadily through mergers and annexations; neighboring Houghton merged with Kirkland in 1968, and major annexations in 1974 and 1988 added thousands of residents and several square miles. Today, Kirkland is home to around 100,000 residents, a thriving lakeside community that fulfilled Peter Kirk's dream of a prosperous city on Lake Washington; just not in the way he ever imagined.<br>
@@ -50,27 +60,21 @@
   </div>
 
   <script>
-      function toggleAccordion(button) {
-        const content = button.nextElementSibling;
-        content.style.display =
-          content.style.display === "block" ? "none" : "block";
-      }
+function toggleTimeline(item) {
+  item.classList.toggle("active");
+}
 
-      function scrollToSection(id) {
-        document.getElementById(id).scrollIntoView({ behavior: "smooth" });
-      }
-
-      function toggleTimeline(item) {
-        document
-          .querySelectorAll(".timeline-item")
-          .forEach((i) => i.classList.remove("active"));
-        item.classList.add("active");
-
-      }
-
-      function toggleMenu() {
-        document.getElementById('mobileMenu').classList.toggle('open');
-      }
-    </script>
+document.querySelectorAll('.subnav-item > a').forEach(link => {
+  link.addEventListener('click', function(e) {
+    const item = this.parentElement;
+    if (item.querySelector('.subnav-dropdown') && window.innerWidth <= 768) {
+      e.preventDefault();
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.subnav-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+  });
+});
+</script>
 </body>
 </html>
