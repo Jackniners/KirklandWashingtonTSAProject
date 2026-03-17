@@ -8,28 +8,6 @@
     <title>Activities - Kirkland Compass</title>
   </head>
 
-    <div class="topbar">
-      <div class="topbar-left">
-        <img src="KirkSeal.png" alt="Kirkland Seal">
-        <span>City of Kirkland, Washington</span>
-      </div>
-      <div class="topbar-links">
-        <a href="https://www.kirklandwa.gov" target="_blank">Official City Site</a>
-        <a href="index.html">Home</a>
-        <a href="info.html">About</a>
-        <a href="history.html">History</a>
-        <a href="resources.html">Resources</a>
-      </div>
-      <button class="hamburger" onclick="toggleMenu()">☰</button>
-    </div>
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="https://www.kirklandwa.gov" target="_blank">Official City Site</a>
-      <a href="index.html">Home</a>
-      <a href="info.html">About</a>
-      <a href="history.html">History</a>
-      <a href="resources.html">Resources</a>
-    </div>
-
   <body class="activities">
     <header class="hero">
       <div class="hero-overlay"></div>
@@ -40,17 +18,40 @@
     </header>
 
   <div class="subnav">
-    <a href="#things to do">Things to do</a>
-    <a href="#restaurants">Restaurants</a>
-    <a href="#parks">Parks</a>
-    <a href="#map">Map</a>
-    <a href="#communities">Communities</a>
-    <a href="index.html" class="page-link">Home</a>
+  <div class="subnav-item">
+    <a href="index.html">Home</a>
+    <div class="subnav-dropdown">
+      <a href="index.html#about">About</a>
+      <a href="index.html#whyMoveSection">Why Move?</a>
+      <a href="index.html#history">History</a>
+      <a href="index.html#map">Map</a>
+      <a href="index.html#worksCited">Works Cited</a>
+    </div>
   </div>
+  <div class="subnav-item">
+    <a href="activities.html">Activities</a>
+    <div class="subnav-dropdown">
+      <a href="activities.html#things-to-do">Things to Do</a>
+      <a href="activities.html#restaurants">Restaurants</a>
+      <a href="activities.html#parks">Parks</a>
+      <a href="activities.html#map">Map</a>
+      <a href="activities.html#communities">Communities</a>
+    </div>
+  </div>
+  <a href="info.html">About</a>
+  <a href="history.html">History</a>
+  <div class="subnav-item">
+    <a href="resources.html">Resources</a>
+    <div class="subnav-dropdown">
+      <a href="WebsiteDesignWorkLog.pdf">Work Log</a>
+      <a href="Student Copyright Checklist.pdf">Student Copyright Checklist</a>
+    </div>
+  </div>
+</div>
 
   <div class="wrapper">
 
-    <h2 id="things to do">Things to do</h2>
+    <h2 id="things-to-do">Things to do</h2>
   <div class="card-list">
     <ul>
       <li><strong>Kirkland Arts Center</strong> — A vibrant gallery showcasing local art, classes, and workshops.  
@@ -191,9 +192,17 @@ function toggleTimeline(item) {
   item.classList.toggle("active");
 }
 
-function toggleMenu() {
-  document.getElementById('mobileMenu').classList.toggle('open');
-}
+document.querySelectorAll('.subnav-item > a').forEach(link => {
+  link.addEventListener('click', function(e) {
+    const item = this.parentElement;
+    if (item.querySelector('.subnav-dropdown') && window.innerWidth <= 768) {
+      e.preventDefault();
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.subnav-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+  });
+});
 </script>
   </body>
   </html>
