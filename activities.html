@@ -193,13 +193,32 @@ function toggleTimeline(item) {
 }
 
 document.querySelectorAll('.subnav-item > a').forEach(link => {
+  let tapped = false;
+
   link.addEventListener('click', function(e) {
     const item = this.parentElement;
-    if (item.querySelector('.subnav-dropdown') && window.innerWidth <= 768) {
-      e.preventDefault();
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.subnav-item').forEach(i => i.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
+    const dropdown = item.querySelector('.subnav-dropdown');
+
+    if (dropdown && window.innerWidth <= 768) {
+      if (!tapped) {
+        e.preventDefault(); // first tap opens dropdown
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.subnav-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+        tapped = true;
+
+        // Close dropdown and reset tapped if user clicks outside
+        document.addEventListener('click', function docListener(event) {
+          if (!item.contains(event.target)) {
+            item.classList.remove('open');
+            tapped = false;
+            document.removeEventListener('click', docListener);
+          }
+        });
+      } else {
+        // second tap follows the link
+        tapped = false; // reset for next time
+      }
     }
   });
 });
