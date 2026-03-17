@@ -52,6 +52,8 @@
   <div class="wrapper">
     <div class="card-list">
       <ul>
+        <li><a href="WebsiteDesignWorkLog.pdf">Work Log</a></li>
+        <li><a href="Student Copyright Checklist.pdf">Student Copyright Checklist</a></li>
         <li><a href="https://www.kirklandwa.gov/Government/Departments/Parks-and-Community-Services" target="_blank">City of Kirkland: “Parks and Community Services.”</a></li>
         <li><a href="https://kirklanddowntown.org/" target="_blank">Kirkland Downtown Association: “About.”</a></li>
         <li><a href="https://kirklandartscenter.org/" target="_blank">Kirkland Arts Center: “Programs & Community.”</a></li>
@@ -68,19 +70,38 @@
     <p class="center"><a href="index.html" class="btn">Back to Home</a></p>
   </div>
 
-  <script>
+    <script>
 function toggleTimeline(item) {
   item.classList.toggle("active");
 }
 
 document.querySelectorAll('.subnav-item > a').forEach(link => {
+  let tapped = false;
+
   link.addEventListener('click', function(e) {
     const item = this.parentElement;
-    if (item.querySelector('.subnav-dropdown') && window.innerWidth <= 768) {
-      e.preventDefault();
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.subnav-item').forEach(i => i.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
+    const dropdown = item.querySelector('.subnav-dropdown');
+
+    if (dropdown && window.innerWidth <= 768) {
+      if (!tapped) {
+        e.preventDefault(); // first tap opens dropdown
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.subnav-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+        tapped = true;
+
+        // Close dropdown and reset tapped if user clicks outside
+        document.addEventListener('click', function docListener(event) {
+          if (!item.contains(event.target)) {
+            item.classList.remove('open');
+            tapped = false;
+            document.removeEventListener('click', docListener);
+          }
+        });
+      } else {
+        // second tap follows the link
+        tapped = false; // reset for next time
+      }
     }
   });
 });
