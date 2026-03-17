@@ -5,19 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/jpg" href="KirkSeal.png" />
   <link rel="stylesheet" href="style.css" />
-  <title>Kirkland Compass - Info</title>
+  <title>Kirkland Compass - Resources</title>
 </head>
 
-<body class="info">
+<body class="resources">
   <header class="hero">
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <h1>All About Kirkland, Washington</h1>
-      <p>More Information on Kirkland</p>
+      <h1>Resources</h1>
+      <p>Works Cited</p>
     </div>
   </header>
 
-<div class="subnav">
+  <div class="subnav">
   <div class="subnav-item">
     <a href="index.html">Home</a>
     <div class="subnav-dropdown">
@@ -51,9 +51,18 @@
 
   <div class="wrapper">
     <div class="card-list">
-      <p>
-        Kirkland is a city located in King County on the east side of Lake Washington. For those commuting or visiting the place, it's very convenient as it is just about ten miles northeast of Seattle. Kirkland is known for its active community life, its downtown area full of pedestrians, and the nature parks close to the lake. The city mixes pretty nature with the comfort of modernity. One of the biggest attractions of Kirkland is Lake Washington. Kirkland has more waterfront parks than many other cities in the area. Parks like Marina Park, Juanita Beach Park, and Houghton Beach are the most frequented spots where the public gets to be near the water easily. These parks are used for activities like swimming, boating, biking, and picnics. The Cross Kirkland Corridor is another famous attraction providing a long trail meant for walking and biking all the way through the city.
-      </p>
+      <ul>
+        <li><a href="https://www.kirklandwa.gov/Government/Departments/Parks-and-Community-Services" target="_blank">City of Kirkland: “Parks and Community Services.”</a></li>
+        <li><a href="https://kirklanddowntown.org/" target="_blank">Kirkland Downtown Association: “About.”</a></li>
+        <li><a href="https://kirklandartscenter.org/" target="_blank">Kirkland Arts Center: “Programs & Community.”</a></li>
+        <li><a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26882.363694387897!2d-122.2169586!3d47.6859576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54906dabebbd6bbb:0x77db7c2a5c1f98ad!2sKirkland,%20WA!5e0!3m2!1sen!2sus!4v1731880000000!5m2!1sen!2sus" target="_blank">Google Maps: “Kirkland, WA.” Embedded API Map.</a></li>
+        <li>www.kirklandwa.gov: KirkSeal.png</li>
+        <li><a href="https://www.kirklandwa.gov/Government/Departments/Parks-and-Community-Services/Find-a-Park/Marina-Park" target="_blank">Kirkland Marina Park Photo</a></li>
+        <li><a href="https://www.explorekirkland.com/things-to-do/parks/" target="_blank">Kirkland Overview Photo</a></li>
+        <li><a href="https://www.historylink.org/file/208" target="_blank">Kirkland History Photo</a></li>
+        <li><a href="https://beautifulwashington.com/parks-refuges/273-state-parks/524-bridle-trails-state-park.html" target="_blank">Bridle Trails National Park Photo</a></li>
+        <li><a href="https://www.mxmla.com/juanita-beach-park" target="_blank">Juanita Beach Park Photo</a></li>
+      </ul>
     </div>
 
     <p class="center"><a href="index.html" class="btn">Back to Home</a></p>
@@ -65,13 +74,32 @@ function toggleTimeline(item) {
 }
 
 document.querySelectorAll('.subnav-item > a').forEach(link => {
+  let tapped = false;
+
   link.addEventListener('click', function(e) {
     const item = this.parentElement;
-    if (item.querySelector('.subnav-dropdown') && window.innerWidth <= 768) {
-      e.preventDefault();
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.subnav-item').forEach(i => i.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
+    const dropdown = item.querySelector('.subnav-dropdown');
+
+    if (dropdown && window.innerWidth <= 768) {
+      if (!tapped) {
+        e.preventDefault(); // first tap opens dropdown
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.subnav-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+        tapped = true;
+
+        // Close dropdown and reset tapped if user clicks outside
+        document.addEventListener('click', function docListener(event) {
+          if (!item.contains(event.target)) {
+            item.classList.remove('open');
+            tapped = false;
+            document.removeEventListener('click', docListener);
+          }
+        });
+      } else {
+        // second tap follows the link
+        tapped = false; // reset for next time
+      }
     }
   });
 });
