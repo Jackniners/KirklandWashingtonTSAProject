@@ -8,28 +8,6 @@
   <title>Kirkland Compass - Info</title>
 </head>
 
-<div class="topbar">
-      <div class="topbar-left">
-        <img src="KirkSeal.png" alt="Kirkland Seal">
-        <span>City of Kirkland, Washington</span>
-      </div>
-      <div class="topbar-links">
-        <a href="https://www.kirklandwa.gov" target="_blank">Official City Site</a>
-        <a href="index.html">Home</a>
-        <a href="activities.html">Activities</a>
-        <a href="history.html">History</a>
-        <a href="resources.html">Resources</a>
-      </div>
-      <button class="hamburger" onclick="toggleMenu()">☰</button>
-    </div>
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="https://www.kirklandwa.gov" target="_blank">Official City Site</a>
-        <a href="index.html">Home</a>
-        <a href="activities.html">Activities</a>
-        <a href="history.html">History</a>
-        <a href="resources.html">Resources</a>
-    </div>
-
 <body class="info">
   <header class="hero">
     <div class="hero-overlay"></div>
@@ -39,8 +17,40 @@
     </div>
   </header>
 
+<div class="subnav">
+  <div class="subnav-item">
+    <a href="index.html">Home</a>
+    <div class="subnav-dropdown">
+      <a href="index.html#about">About</a>
+      <a href="index.html#whyMoveSection">Why Move?</a>
+      <a href="index.html#history">History</a>
+      <a href="index.html#map">Map</a>
+      <a href="index.html#worksCited">Works Cited</a>
+    </div>
+  </div>
+  <div class="subnav-item">
+    <a href="activities.html">Activities</a>
+    <div class="subnav-dropdown">
+      <a href="activities.html#things-to-do">Things to Do</a>
+      <a href="activities.html#restaurants">Restaurants</a>
+      <a href="activities.html#parks">Parks</a>
+      <a href="activities.html#map">Map</a>
+      <a href="activities.html#communities">Communities</a>
+    </div>
+  </div>
+  <a href="info.html">About</a>
+  <a href="history.html">History</a>
+  <div class="subnav-item">
+    <a href="resources.html">Resources</a>
+    <div class="subnav-dropdown">
+      <a href="WebsiteDesignWorkLog.pdf">Work Log</a>
+      <a href="Student Copyright Checklist.pdf">Student Copyright Checklist</a>
+    </div>
+  </div>
+</div>
+
   <div class="wrapper">
-    <div class="card-list-info">
+    <div class="card-list">
       <p>
         Kirkland is a city located in King County on the east side of Lake Washington. For those commuting or visiting the place, it's very convenient as it is just about ten miles northeast of Seattle. Kirkland is known for its active community life, its downtown area full of pedestrians, and the nature parks close to the lake. The city mixes pretty nature with the comfort of modernity. One of the biggest attractions of Kirkland is Lake Washington. Kirkland has more waterfront parks than many other cities in the area. Parks like Marina Park, Juanita Beach Park, and Houghton Beach are the most frequented spots where the public gets to be near the water easily. These parks are used for activities like swimming, boating, biking, and picnics. The Cross Kirkland Corridor is another famous attraction providing a long trail meant for walking and biking all the way through the city.
       </p>
@@ -50,27 +60,21 @@
   </div>
 
   <script>
-      function toggleAccordion(button) {
-        const content = button.nextElementSibling;
-        content.style.display =
-          content.style.display === "block" ? "none" : "block";
-      }
+function toggleTimeline(item) {
+  item.classList.toggle("active");
+}
 
-      function scrollToSection(id) {
-        document.getElementById(id).scrollIntoView({ behavior: "smooth" });
-      }
-
-      function toggleTimeline(item) {
-        document
-          .querySelectorAll(".timeline-item")
-          .forEach((i) => i.classList.remove("active"));
-        item.classList.add("active");
-
-      }
-
-      function toggleMenu() {
-        document.getElementById('mobileMenu').classList.toggle('open');
-      }
-    </script>
+document.querySelectorAll('.subnav-item > a').forEach(link => {
+  link.addEventListener('click', function(e) {
+    const item = this.parentElement;
+    if (item.querySelector('.subnav-dropdown') && window.innerWidth <= 768) {
+      e.preventDefault();
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.subnav-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+  });
+});
+</script>
 </body>
 </html>
