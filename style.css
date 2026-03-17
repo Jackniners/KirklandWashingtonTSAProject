@@ -24,46 +24,6 @@ h2[id] {
   scroll-margin-top: calc(var(--subnav-height) + 20px);
 }
 
-.topbar {
-  background: var(--green);
-  color: rgba(255,255,255,0.75);
-  font-size: 0.75rem;
-  letter-spacing: 0.05em;
-  padding: 6px 28px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.topbar a {
-  color: rgba(255,255,255,0.75);
-  text-decoration: none;
-  margin-left: 18px;
-  transition: color 0.2s;
-}
-
-.topbar a:hover { color: var(--gold); }
-
-.topbar-left {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.topbar-left img {
-  height: 22px;
-  width: auto;
-  opacity: 0.9;
-}
-
-.topbar-left span {
-  font-weight: 600;
-  font-size: 0.8rem;
-  color: white;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
 header.hero {
   position: relative;
   height: 70vh;
@@ -76,7 +36,7 @@ header.hero {
 }
 
 body.resources header.hero {
-  background-image: url('https://sandee.com/_next/image?url=https%3A%2F%2Fcdn.sandee.com%2F54395_1650_1100.avif&w=640&q=75');
+  background-image: url('https://beautifulwashington.com/images/bridle-trails-state-park/bridle-trails-state-park-2.jpg');
 }
 
 body.history header.hero {
@@ -174,27 +134,69 @@ body.activities header.hero {
   border-bottom-color: var(--gold);
 }
 
-.page-link{
-  margin-left:120px;
+.subnav-item {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
-.subnav a.page-link {
+.subnav-item > a {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--green);
-  background: rgba(212, 180, 91, 0.305);
-  border-radius: 3px;
-  padding: 0 14px;
+  text-decoration: none;
+  padding: 0 12px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s, background 0.2s;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -3px;
 }
 
-.subnav a.page-link::before {
-  content: '↗';
-  font-size: 0.8rem;
-  opacity: 0.8;
-  margin-right: 4px;
-}
-
-.subnav a.page-link:hover {
-  background: rgba(212, 180, 91, 0.501);
+.subnav-item > a:hover,
+.subnav-item:hover > a {
+  background: rgba(31, 77, 58, 0.06);
   border-bottom-color: var(--gold);
+}
+
+.subnav-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border-top: 3px solid var(--gold);
+  border-radius: 0 0 6px 6px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  min-width: 170px;
+  padding: 6px 0;
+  z-index: 1000;
+}
+
+.subnav-item:hover .subnav-dropdown {
+  display: block;
+}
+
+.subnav-dropdown a {
+  display: block;
+  padding: 9px 18px;
+  height: auto;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--green);
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.subnav-dropdown a:hover {
+  background: rgba(31, 77, 58, 0.06);
+  border-bottom-color: transparent;
 }
 
 .wrapper {
@@ -446,7 +448,6 @@ a:hover { color: var(--green); }
   border-top: 1px solid #eeede9;
 }
 
-
 .btn {
   display: inline-flex;
   align-items: center;
@@ -590,44 +591,12 @@ body.history {
 body.resources {
   --green: #2e8b57;
   --green-light: #3cb371;
-  --gold: #4da6ff;
+  --gold: #A99170;
   --soft-bg: #f1f1f1;
   --text: #1f2f3a;
 }
 
-.hamburger {
-  display: none;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.4rem;
-  cursor: pointer;
-}
-
-.mobile-menu {
-  display: none;
-  flex-direction: column;
-  background: var(--green);
-  padding: 8px 0;
-}
-
-.mobile-menu a {
-  color: rgba(255,255,255,0.85);
-  text-decoration: none;
-  padding: 12px 24px;
-  font-size: 0.85rem;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  letter-spacing: 0.05em;
-}
-
-.mobile-menu a:hover { color: var(--gold); }
-
-.mobile-menu.open { display: flex; }
-
 @media (max-width: 768px) {
-
-  .topbar-links { display: none; }
-  .hamburger { display: block; }
 
   .hero-content {
     padding: 0 20px 36px;
@@ -660,8 +629,12 @@ body.resources {
     border-bottom-color: transparent;
   }
 
-  .page-link {
-    margin-left: 0;
+  .subnav-item:hover .subnav-dropdown {
+    display: none;
+  }
+
+  .subnav-item.open .subnav-dropdown {
+    display: block;
   }
 
   .timeline {
